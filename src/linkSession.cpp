@@ -4,7 +4,7 @@
 void LinkSession::print(){
     if(millis() >= printTimer + 50){
         printTimer = millis();
-        Serial.println(getBeatphaseReadable());
+        Serial.println(getBeatphase());
     }
 }
 
@@ -26,11 +26,20 @@ void LinkSession::setTempo(uint64_t tempo_mspb){
     tempo_msperBeat = tempo_mspb;
 }
 
-uint64_t LinkSession::getBeatphaseReadable(){
+uint64_t LinkSession::getTempo(){
+    return tempo_msperBeat;
+}
+
+void LinkSession::setBeatphase(uint64_t phase){
+
+}
+
+uint64_t LinkSession::getBeatphase(){
     uint64_t deltaTime = micros() - timestampStart;
-    uint64_t beatphase = deltaTime / tempo_msperBeat;
+    uint64_t beatphase = deltaTime * 4000 / tempo_msperBeat;
     return beatphase;
 }
+
 
 double LinkSession::getTempoReadable(){
     long double _msPerBeat = (long double) tempo_msperBeat;

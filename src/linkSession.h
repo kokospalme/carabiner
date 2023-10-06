@@ -9,9 +9,11 @@ class LinkSession{
     void print();
 
     void setTempo(uint64_t tempo_mspb);
-
+    uint64_t getTempo();
     double getTempoReadable();
-    uint64_t getBeatphaseReadable();
+
+    void setBeatphase(uint64_t phase);
+    uint64_t getBeatphase();
     private:
     bool started = false;
     uint64_t tempo_msperBeat = 500000;    // bpm = 60.000.000 / tempo --> 50.0000->120bpm

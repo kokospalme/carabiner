@@ -115,7 +115,6 @@ void Linker::alinkListener_run(){
                 break;
                 case PASSIVE:
                     session.setTempo(_msg.msPerBeat);
-                    session.start();
                 break;
                 default:
                 break;
